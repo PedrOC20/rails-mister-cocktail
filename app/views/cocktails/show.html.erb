@@ -1,0 +1,17 @@
+<h2>Cocktail Details</h2>
+
+<%= link_to 'Add new Ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-primary mt-4" %>
+
+
+<h3 class="my-5"><%= @cocktail.name %></h3>
+
+<ul>
+  <% @cocktail.doses.each do |dose| %>
+
+    <li>
+      <%= dose.description %> of <%= dose.ingredient.name  %>
+      <%= link_to 'Delete Ingredient', dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger mt-4" %>
+    </li>
+    <p></p>
+  <% end %>
+</ul>
