@@ -5,6 +5,12 @@
 
 <h3 class="my-5"><%= @cocktail.name %></h3>
 
+<% if @cocktail.photo.present? %>
+  <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <%= image_tag "placeholder.jpg" %>
+<% end %>
+
 <ul>
   <% @cocktail.doses.each do |dose| %>
 
